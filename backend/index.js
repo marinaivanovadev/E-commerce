@@ -6,10 +6,6 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
-const { type } = require("os");
-const { error } = require("console");
-const { runInNewContext } = require("vm");
-
 
 app.use(express.json());
 app.use(cors());
@@ -239,9 +235,7 @@ const fetchUser = async (req,res, next) => {
 			next();
 		} catch (error) {
 			res.status(401).send({errors:"Please authenticate using valid token"})
-
 		}
-
 	}
 }
 
@@ -265,7 +259,7 @@ app.post('/removefromcart', fetchUser, async (req, res) => {
 	res.send("Removed")
 })
 
-//creating endpoint to get cartdata
+//Creating endpoint to get cartdata
 
 app.post('/getcart', fetchUser, async (req,res) => {
 	console.log("GetCart");
